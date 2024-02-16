@@ -1,6 +1,7 @@
 import type { Config } from "@staticcms/core";
 
 const config: Config = {
+	publish_mode: "editorial_workflow",
 	backend: {
 		name: "git-gateway",
 		branch: "main",
