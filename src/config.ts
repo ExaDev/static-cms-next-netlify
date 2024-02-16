@@ -1,7 +1,10 @@
 import type { Config } from "@staticcms/core";
 
 const config: Config = {
-  backend: { name: "git-gateway", branch: "main" },
+  backend: {
+    name: "github", branch: "main",
+    repo: "ExaDev-io/static-cms-next-netlify"
+  },
   media_folder: "public/images",
   public_folder: "/images",
   collections: [
