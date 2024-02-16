@@ -1,18 +1,18 @@
 import type { FC } from "react";
 
 export interface BurgerProps {
-  active: boolean;
-  onClick: () => void;
+	active: boolean;
+	onClick: () => void;
 }
 
 const Burger: FC<BurgerProps> = ({ active, onClick }) => {
-  return (
-    <div className={"container " + (active ? "active" : "")} onClick={onClick}>
-      <div className={"meat meat-1"} />
-      <div className={"meat meat-2"} />
-      <div className={"meat meat-3"} />
-      <style jsx>
-        {`
+	return (
+		<div className={"container " + (active ? "active" : "")} onClick={onClick}>
+			<div className={"meat meat-1"} />
+			<div className={"meat meat-2"} />
+			<div className={"meat meat-3"} />
+			<style jsx>
+				{`
           .container {
             position: fixed;
             width: 38px;
@@ -57,9 +57,9 @@ const Burger: FC<BurgerProps> = ({ active, onClick }) => {
             }
           }
         `}
-      </style>
-    </div>
-  );
+			</style>
+		</div>
+	);
 };
 
 export default Burger;

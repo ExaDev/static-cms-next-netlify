@@ -11,41 +11,41 @@ import type { PostContent } from "@/lib/posts";
 import type { TagContent } from "@/lib/tags";
 
 interface PostsProps {
-  posts: PostContent[];
-  tags: TagContent[];
-  pagination: {
-    current: number;
-    pages: number;
-  };
+	posts: PostContent[];
+	tags: TagContent[];
+	pagination: {
+		current: number;
+		pages: number;
+	};
 }
 
 const getPosts = async (): Promise<PostsProps> => {
-  const posts = listPostContent(1, config.posts_per_page);
-  const tags = listTags();
-  const pagination = {
-    current: 1,
-    pages: Math.ceil(countPosts() / config.posts_per_page),
-  };
-  return {
-    posts,
-    tags,
-    pagination,
-  };
+	const posts = listPostContent(1, config.posts_per_page);
+	const tags = listTags();
+	const pagination = {
+		current: 1,
+		pages: Math.ceil(countPosts() / config.posts_per_page),
+	};
+	return {
+		posts,
+		tags,
+		pagination,
+	};
 };
 
 const Posts = async () => {
-  const { posts, tags, pagination } = await getPosts();
+	const { posts, tags, pagination } = await getPosts();
 
-  const url = "/posts";
-  const title = "All posts";
-  return (
-    <Layout>
-      <BasicMeta url={url} title={title} />
-      <OpenGraphMeta url={url} title={title} />
-      <TwitterCardMeta url={url} title={title} />
-      <PostList posts={posts} tags={tags} pagination={pagination} />
-    </Layout>
-  );
+	const url = "/posts";
+	const title = "All posts";
+	return (
+		<Layout>
+			<BasicMeta url={url} title={title} />
+			<OpenGraphMeta url={url} title={title} />
+			<TwitterCardMeta url={url} title={title} />
+			<PostList posts={posts} tags={tags} pagination={pagination} />
+		</Layout>
+	);
 };
 
 export default Posts;

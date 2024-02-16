@@ -4,20 +4,20 @@ import type { TagContent } from "@/lib/tags";
 import type { FC } from "react";
 
 export interface TagButtonProps {
-  tag: TagContent;
+	tag: TagContent;
 }
 
 const TagButton: FC<TagButtonProps> = ({ tag }) => {
-  if (!tag) {
-    return null;
-  }
+	if (!tag) {
+		return null;
+	}
 
-  return (
-    <>
-      <Link
-        href={"/posts/tags/[[...slug]]"}
-        as={`/posts/tags/${tag.slug}`}
-        className="
+	return (
+		<>
+			<Link
+				href={"/posts/tags/[[...slug]]"}
+				as={`/posts/tags/${tag.slug}`}
+				className="
           inline-block
           rounded-[3px]
           bg-[rgba(21_132_125_0.2)]
@@ -28,11 +28,11 @@ const TagButton: FC<TagButtonProps> = ({ tag }) => {
           active:bg-[rgba(21_132_125_0.4)]
           hover:bg-[rgba(21_132_125_0.4)]
         "
-      >
-        {tag.name}
-      </Link>
-    </>
-  );
+			>
+				{tag.name}
+			</Link>
+		</>
+	);
 };
 
 export default TagButton;
